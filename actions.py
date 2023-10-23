@@ -1,12 +1,14 @@
 from copy import deepcopy
 
-from entity import Predator, Herbivore, Tree, Grass, Rock
+from entity import Predator, Herbivore, Tree, Grass, Rock, Creature
 
 
 def move_all_entities(cells):
     temp_cells = deepcopy(cells)
     for coords, entity in temp_cells.as_dict().items():
-        cells.move_entity(coords, (coords[0] + 1, coords[1]))
+        if isinstance(entity, Creature):
+            cells.move_entity(coords, (coords[0] + 1, coords[1]))  # TODO replace on entity.make_move()
+            # entity.make_move()
 
 
 def place_entities(cells):
