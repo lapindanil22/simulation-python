@@ -7,8 +7,7 @@ def move_all_entities(cells):
     temp_cells = deepcopy(cells)
     for coords, entity in temp_cells.as_dict().items():
         if isinstance(entity, Creature):
-            cells.move_entity(coords, (coords[0] + 1, coords[1]))  # TODO replace on entity.make_move()
-            # entity.make_move()
+            entity.make_move(coords, cells)
 
 
 def place_entities(cells):
