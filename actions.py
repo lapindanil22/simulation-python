@@ -1,3 +1,4 @@
+import random
 from copy import deepcopy
 
 from entity import Predator, Herbivore, Tree, Grass, Rock, Creature
@@ -11,8 +12,6 @@ def move_all_entities(cells):
 
 
 def place_entities(cells):
-    cells.set_entity((14, 34), Predator())
-    cells.set_entity((15, 35), Herbivore())
-    cells.set_entity((23, 35), Tree())
-    cells.set_entity((24, 36), Grass())
-    cells.set_entity((25, 37), Rock())
+    for i in range(100):
+        cells.set_entity((random.randint(0, 1000), random.randint(0, 1000)),
+                         random.choice((Predator(), Herbivore(), Tree(), Grass(), Rock())))
