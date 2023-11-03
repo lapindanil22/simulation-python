@@ -5,5 +5,5 @@ from entity.entity import Entity
 
 class Creature(Entity):
     @abstractmethod
-    def make_move(self, current_coords, cells):
+    def do_move(self, current_coords, cells):
         pass
