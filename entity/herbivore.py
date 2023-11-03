@@ -13,7 +13,7 @@ def find_nearest_grass(current_coords, cells):
         if isinstance(entity, Grass):
             dist = max(abs(current_coords[0] - coords[0]),
                        abs(current_coords[1] - coords[1]))
-            if dist < nearest_dist:
+            if dist < 10 and dist < nearest_dist:  # 10 is visibility distance
                 nearest_grass_coords = coords
                 nearest_dist = dist
 

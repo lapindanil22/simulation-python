@@ -46,4 +46,4 @@ class Simulation:
                     pause_simulation()
 
             self.next_turn()
-            pygame.time.Clock().tick(2)
+            pygame.time.Clock().tick(15)
