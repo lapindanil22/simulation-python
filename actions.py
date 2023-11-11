@@ -1,7 +1,7 @@
 import random
 from copy import deepcopy
 
-from entity import Predator, Herbivore, Tree, Grass, Rock, Creature
+from entity import Creature
 
 
 def move_all_entities(cells):
@@ -11,12 +11,21 @@ def move_all_entities(cells):
             entity.do_move(coord, cells)
 
 
-def place_entities(cells):
-    for i in range(200):
-        cells.set_cell((random.randint(0, 1000), random.randint(0, 1000)), Grass)  # random.choice((Tree(), Rock())))
+def place_entities(cells, population):
+    for entity_type in population.keys():
+        for _ in range(population[entity_type]):
+            cells.set_cell((random.randint(0, cells.size[0]), random.randint(0, cells.size[1])), entity_type)
 
-    for i in range(20):
-        cells.set_cell((random.randint(0, 1000), random.randint(0, 1000)), Herbivore)
 
-    for i in range(3):
-        cells.set_cell((random.randint(0, 1000), random.randint(0, 1000)), Predator)
+def find_nearest_entity(entity_type, visibility_dist, current_coord, cells):
+    nearest_entity_coord = (current_coord[0] + random.randint(-1, 1),
+                            current_coord[1] + random.randint(-1, 1))
+    nearest_dist = 10 ** 6
+    for coord, entity in cells.to_dict():
+        if isinstance(entity, entity_type):
+            dist = max(abs(current_coord[0] - coord[0]),
+                       abs(current_coord[1] - coord[1]))  # TODO find entity through map edge
+            if dist < visibility_dist and dist < nearest_dist:
+                nearest_entity_coord = coord
+                nearest_dist = dist
+    return nearest_entity_coord
