@@ -18,9 +18,9 @@ class Simulation:
         pygame.draw.rect(self.__screen, "black",
                          (0, 0, self.get_cells().size[0] * self.cell_size_px,
                           self.get_cells().size[1] * self.cell_size_px))
-        for coords, entity in self.get_cells().as_dict().items():
-            pygame.draw.rect(self.__screen, entity.color, (coords[0] * self.cell_size_px,
-                                                           coords[1] * self.cell_size_px,
+        for coord, entity in self.get_cells().to_dict():
+            pygame.draw.rect(self.__screen, entity.color, (coord[0] * self.cell_size_px,
+                                                           coord[1] * self.cell_size_px,
                                                            self.cell_size_px,
                                                            self.cell_size_px))
         pygame.display.update()
