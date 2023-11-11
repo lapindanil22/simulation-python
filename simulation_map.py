@@ -1,7 +1,11 @@
-class Map:
+class SimulationMap:
     def __init__(self, size) -> None:
-        self.size = size
+        self.__size = size
         self.__cells = {}
+
+    @property
+    def size(self):
+        return self.__size
 
     def clear_cell(self, coord):
         self.__cells.pop(coord, None)

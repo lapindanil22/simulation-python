@@ -1,6 +1,7 @@
 from entity.herbivore import Herbivore
 from entity.creature import Creature
-from ulils import sign, find_nearest_entity
+from ulils import sign
+from actions import find_nearest_entity
 
 
 class Predator(Creature):
