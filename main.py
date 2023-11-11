@@ -1,7 +1,8 @@
-from map import Map
+import pygame
+
 from simulation import Simulation
 
 if __name__ == "__main__":
-    cells = Map((64, 48))
-    simulation = Simulation(cells)
-    simulation.start_simulation()
+    pygame.init()
+    simulation = Simulation((64, 48))
+    simulation.start()
