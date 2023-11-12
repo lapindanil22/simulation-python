@@ -5,7 +5,7 @@ from actions import find_nearest_entity
 
 
 class Herbivore(Creature):
-    color = "green"
+    color = "white"
     visibility_dist = 10
 
     def do_move(self, current_coord, cells):

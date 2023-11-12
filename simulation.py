@@ -5,16 +5,14 @@ from simulation_map import SimulationMap
 
 
 class Simulation:
-    cell_size_px = 10
-
-    def __init__(self, map_size):
+    def __init__(self, map_size, cell_size_px):
         self.__cells = SimulationMap(map_size)
-        self.renderer = Renderer(map_size, self.cell_size_px)
+        self.renderer = Renderer(map_size, cell_size_px)
 
     def next_turn(self):
         actions.move_all_entities(self.__cells)
 
-    def start(self, population):
+    def start(self, population, fps_limit):
         actions.place_entities(self.__cells, population)
         while True:
             for event in pygame.event.get():
@@ -23,4 +21,4 @@ class Simulation:
                     quit()
             self.next_turn()
             self.renderer.render(self.__cells)
-            pygame.time.Clock().tick(15)
+            pygame.time.Clock().tick(fps_limit)

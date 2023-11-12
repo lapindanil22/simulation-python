@@ -1,10 +1,11 @@
 import random
 from copy import deepcopy
 
-from entity import Creature
+# from entities import Creature
 
 
 def move_all_entities(cells):
+    from entity import Creature
     temp_cells = deepcopy(cells)
     for coord, entity in temp_cells.to_dict():
         if isinstance(entity, Creature):
@@ -12,8 +13,8 @@ def move_all_entities(cells):
 
 
 def place_entities(cells, population):
-    for entity_type in population.keys():
-        for _ in range(population[entity_type]):
+    for entity_type, quantity in population.items():
+        for _ in range(quantity):
             cells.set_cell((random.randint(0, cells.size[0]), random.randint(0, cells.size[1])), entity_type)
 
 

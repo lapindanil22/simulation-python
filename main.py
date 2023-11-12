@@ -4,14 +4,17 @@ from entity import Grass, Herbivore, Predator, Tree, Rock
 from simulation import Simulation
 
 population = {
-    Grass: 200,
-    Herbivore: 10,
-    Predator: 1,
+    Grass: 500,
+    Herbivore: 5,
+    Predator: 2,
     Tree: 50,
     Rock: 50
 }
+map_size = (150, 100)
+cell_size_px = 6
+fps_limit = 30
 
 if __name__ == "__main__":
     pygame.init()
-    simulation = Simulation((64, 48))
-    simulation.start(population)
+    simulation = Simulation(map_size, cell_size_px)
+    simulation.start(population, fps_limit)
