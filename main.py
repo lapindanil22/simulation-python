@@ -10,9 +10,9 @@ population = {
     Tree: 50,
     Rock: 50
 }
-map_size = (150, 100)
-cell_size_px = 6
-fps_limit = 30
+map_size = (80, 60)
+cell_size_px = 10
+fps_limit = 10
 
 if __name__ == "__main__":
     pygame.init()
