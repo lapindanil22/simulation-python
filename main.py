@@ -14,7 +14,6 @@ map_size = (80, 60)
 cell_size_px = 10
 fps_limit = 10
 
-if __name__ == "__main__":
-    pygame.init()
-    simulation = Simulation(map_size, cell_size_px)
-    simulation.start(population, fps_limit)
+pygame.init()
+simulation = Simulation(map_size, cell_size_px)
+simulation.start(population, fps_limit)

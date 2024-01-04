@@ -13,7 +13,7 @@ class Simulation:
         actions.move_all_entities(self.__cells)
 
     def start(self, population, fps_limit):
-        actions.place_entities(self.__cells, population)
+        actions.init_place_entities(self.__cells, population)
         while True:
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
