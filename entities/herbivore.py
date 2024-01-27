@@ -1,7 +1,8 @@
 import random
 
-from entity.grass import Grass
-from entity.creature import Creature
+from entities.creature import Creature
+from entities.grass import Grass
+from simulation_map import SimulationMap
 from ulils import sign
 from actions import find_nearest_entity
 
@@ -10,7 +11,9 @@ class Herbivore(Creature):
     color = "white"
     visibility_dist = 10
 
-    def do_move(self, current_coord, cells):
+    def do_move(self,
+                current_coord: tuple[int, int],
+                cells: SimulationMap):
         target_coord = find_nearest_entity(Grass, self.visibility_dist, current_coord, cells)
         if target_coord:
             move_to_coord = (current_coord[0] + sign(target_coord[0] - current_coord[0]),
